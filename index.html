@@ -1,0 +1,1716 @@
+<!-- ============ ШАПКА + ГЛАВНЫЙ ЭКРАН ============ -->
+<section id="vb-q3f" class="vb-q3f" data-section-name="Шапка и главный экран" data-vibeblock-unique-section="yes" aria-labelledby="vb-q3f-title">
+<style>
+.vb-q3f, .vb-q3f * { box-sizing: border-box; }
+.vb-q3f input, .vb-q3f textarea, .vb-q3f select { font: inherit; }
+
+.vb-q3f {
+  --q-bg: #141517;
+  --q-ink: #EDEEEA;
+  --q-mute: rgba(237,238,234,.74);
+  --q-line: rgba(237,238,234,.16);
+  --q-grid: rgba(237,238,234,.05);
+  --q-accent: #FF5A1F;
+  --q-shell: 1240px;
+  font-family: var(--t-text-font);
+  background-color: var(--q-bg);
+  color: var(--q-ink);
+  position: relative;
+}
+.vb-q3f__inner {
+  max-width: var(--q-shell);
+  margin: 0 auto;
+  padding: 0 clamp(18px, 4vw, 40px);
+}
+
+/* --- навигация --- */
+.vb-q3f__nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: #141517;
+  border-bottom: 1px solid var(--q-line);
+}
+.vb-q3f__navrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 74px;
+}
+.vb-q3f__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--q-ink);
+}
+.vb-q3f__logo-mark {
+  width: 34px;
+  height: 34px;
+  background-color: var(--q-accent);
+  color: #141517;
+  font-family: var(--t-headline-font);
+  font-weight: 800;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.02em;
+}
+.vb-q3f__logo-text {
+  font-family: var(--t-headline-font);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.vb-q3f__logo-sub {
+  display: block;
+  font-family: var(--t-text-font);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--q-mute);
+  margin-top: 2px;
+}
+.vb-q3f__menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.4vw, 34px);
+}
+.vb-q3f__link {
+  font-size: 15px;
+  color: var(--q-mute);
+  text-decoration: none;
+  padding: 6px 0;
+  border-bottom: 1px solid transparent;
+  transition: color .3s cubic-bezier(.16,1,.3,1), border-color .3s cubic-bezier(.16,1,.3,1);
+  white-space: nowrap;
+}
+.vb-q3f__link:hover, .vb-q3f__link:focus-visible {
+  color: var(--q-ink);
+  border-bottom-color: var(--q-accent);
+  outline: none;
+}
+.vb-q3f__burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--q-line);
+  cursor: pointer;
+  position: relative;
+}
+.vb-q3f__burger span {
+  position: absolute;
+  left: 11px;
+  width: 22px;
+  height: 1.5px;
+  background-color: var(--q-ink);
+  transition: transform .3s cubic-bezier(.16,1,.3,1), opacity .2s linear;
+}
+.vb-q3f__burger span:nth-child(1) { top: 16px; }
+.vb-q3f__burger span:nth-child(2) { top: 21.5px; }
+.vb-q3f__burger span:nth-child(3) { top: 27px; }
+.vb-q3f--menu .vb-q3f__burger span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+.vb-q3f--menu .vb-q3f__burger span:nth-child(2) { opacity: 0; }
+.vb-q3f--menu .vb-q3f__burger span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+/* --- кнопки --- */
+.vb-q3f__btn {
+  background-color: var(--q-accent) !important;
+  color: #141517 !important;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.vb-q3f__btn:hover, .vb-q3f__btn:focus-visible { background-color: #FF7440 !important; }
+.vb-q3f__btn-ghost {
+  background-color: transparent !important;
+  color: var(--q-ink) !important;
+  border: 1px solid rgba(237,238,234,.34);
+}
+.vb-q3f__btn-ghost:hover, .vb-q3f__btn-ghost:focus-visible {
+  border-color: var(--q-accent);
+  color: var(--q-accent) !important;
+  background-color: transparent !important;
+}
+
+/* --- герой --- */
+.vb-q3f__hero {
+  position: relative;
+  background-image:
+    linear-gradient(var(--q-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--q-grid) 1px, transparent 1px);
+  background-size: 76px 76px;
+  background-position: center top;
+}
+.vb-q3f__herogrid {
+  display: grid;
+  grid-template-columns: 1.06fr 0.94fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+  padding: clamp(48px, 7vw, 92px) 0 clamp(56px, 7vw, 96px);
+  min-height: calc(100svh - 74px);
+}
+.vb-q3f__kicker {
+  font-family: var(--t-text-font);
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--q-accent);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 26px;
+}
+.vb-q3f__kicker::before {
+  content: "";
+  width: 44px;
+  height: 1px;
+  background-color: var(--q-accent);
+}
+.vb-q3f__title {
+  font-family: var(--t-headline-font);
+  font-weight: 800;
+  font-size: clamp(2.3rem, 5.4vw, 5.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  margin: 0 0 26px;
+  text-wrap: balance;
+  max-width: 15ch;
+}
+.vb-q3f__title em {
+  font-style: normal;
+  color: var(--q-accent);
+}
+.vb-q3f__lead {
+  font-family: var(--t-text-font);
+  font-size: clamp(1rem, 1.3vw, 1.16rem);
+  line-height: 1.65;
+  color: var(--q-mute);
+  max-width: 54ch;
+  margin: 0 0 34px;
+  text-wrap: pretty;
+}
+.vb-q3f__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 44px;
+}
+.vb-q3f__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-top: 1px solid var(--q-line);
+  padding-top: 22px;
+}
+.vb-q3f__fact {
+  font-family: var(--t-text-font);
+  font-size: 15px;
+  color: var(--q-mute);
+  padding: 4px 22px;
+  line-height: 1.45;
+}
+.vb-q3f__fact:first-child { padding-left: 0; }
+.vb-q3f__fact + .vb-q3f__fact { border-left: 1px solid var(--q-line); }
+.vb-q3f__fact b {
+  display: block;
+  font-family: var(--t-headline-font);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--q-ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 2px;
+}
+
+/* --- визуал героя --- */
+.vb-q3f__visual {
+  position: relative;
+  border: 1px solid var(--q-line);
+  padding: 12px;
+}
+.vb-q3f__visual::before,
+.vb-q3f__visual::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--q-accent);
+}
+.vb-q3f__visual::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+.vb-q3f__visual::after { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+.vb-q3f__visualbox {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3.4;
+}
+.vb-q3f__visualbox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(.9) contrast(1.04);
+}
+.vb-q3f__stamp {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 12px 18px;
+  background-color: #141517;
+  border-top: 1px solid var(--q-line);
+  border-right: 1px solid var(--q-line);
+  font-family: var(--t-text-font);
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--q-mute);
+}
+.vb-q3f__scale {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: var(--t-text-font);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--q-ink);
+  background-color: rgba(20,21,23,.82);
+  border: 1px solid var(--q-line);
+  padding: 5px 10px;
+}
+
+/* --- появление --- */
+.vb-q3f--anim [data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .7s cubic-bezier(.16,1,.3,1) var(--rv-d, 0ms), transform .7s cubic-bezier(.16,1,.3,1) var(--rv-d, 0ms);
+}
+.vb-q3f--anim [data-reveal].vb-q3f--in { opacity: 1; transform: none; }
+
+/* --- адаптив --- */
+@media (max-width: 1080px) {
+  .vb-q3f__herogrid { grid-template-columns: 1fr; min-height: 0; }
+  .vb-q3f__title { max-width: 20ch; }
+  .vb-q3f__visual { max-width: 620px; }
+}
+@media (max-width: 960px) {
+  .vb-q3f__burger { display: block; }
+  .vb-q3f__navactions { display: none; }
+  .vb-q3f__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background-color: #141517;
+    border-bottom: 1px solid var(--q-line);
+    padding: 6px clamp(18px, 4vw, 40px) 18px;
+    display: none;
+  }
+  .vb-q3f--menu .vb-q3f__menu { display: flex; }
+  .vb-q3f__link {
+    width: 100%;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--q-line);
+    font-size: 16px;
+  }
+  .vb-q3f__link:hover { border-bottom-color: var(--q-line); color: var(--q-accent); }
+}
+@media (max-width: 640px) {
+  .vb-q3f__logo-sub { display: none; }
+  .vb-q3f__facts { flex-direction: column; gap: 14px; }
+  .vb-q3f__fact { padding: 0; }
+  .vb-q3f__fact + .vb-q3f__fact { border-left: 0; border-top: 1px solid var(--q-line); padding-top: 14px; }
+  .vb-q3f__actions .t-btnflex { width: 100%; justify-content: center; }
+  .vb-q3f__hero { background-size: 56px 56px; }
+}
+@media (max-width: 400px) {
+  .vb-q3f__title { font-size: clamp(2rem, 11vw, 2.6rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vb-q3f--anim [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .vb-q3f__link, .vb-q3f__burger span { transition: none; }
+}
+</style>
+
+<header class="vb-q3f__nav">
+  <div class="vb-q3f__inner vb-q3f__navrow">
+    <a class="vb-q3f__logo" href="#vb-q3f">
+      <span class="vb-q3f__logo-mark">Р</span>
+      <span class="vb-q3f__logo-text">РУСПРОЕКТ
+        <span class="vb-q3f__logo-sub">инженерно-проектная организация</span>
+      </span>
+    </a>
+
+    <nav class="vb-q3f__menu" id="vb-q3f-menu" aria-label="Основная навигация">
+      <a class="vb-q3f__link" href="#vb-m8r">О компании</a>
+      <a class="vb-q3f__link" href="#vb-h4t">Услуги</a>
+      <a class="vb-q3f__link" href="#vb-p6w">Процесс</a>
+      <a class="vb-q3f__link" href="#vb-c9n">Проекты</a>
+      <a class="vb-q3f__link" href="#vb-x5j">Контакты</a>
+    </nav>
+
+    <div class="vb-q3f__navactions">
+      <a class="t-btnflex t-btnflex_sm vb-q3f__btn" href="#vb-x5j">
+        <span class="t-btnflex__text">Обсудить проект</span>
+      </a>
+    </div>
+
+    <button class="vb-q3f__burger" type="button" aria-expanded="false" aria-controls="vb-q3f-menu" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="vb-q3f__hero">
+  <div class="vb-q3f__inner vb-q3f__herogrid">
+    <div class="vb-q3f__content">
+      <p class="vb-q3f__kicker" data-reveal="">ООО «РУСПРОЕКТ» · проектирование</p>
+      <h1 class="vb-q3f__title" id="vb-q3f-title" data-reveal="">Проектируем здания, которые строят <em>без переделок</em></h1>
+      <p class="vb-q3f__lead" data-reveal="">Изыскания, проектная документация и сопровождение строительства в одной организации. Один ответственный за каждый лист — и за то, что по нему построили.</p>
+
+      <div class="vb-q3f__actions" data-reveal="">
+        <a class="t-btnflex t-btnflex_md vb-q3f__btn" href="#vb-x5j">
+          <span class="t-btnflex__text">Оставить заявку</span>
+        </a>
+        <a class="t-btnflex t-btnflex_md vb-q3f__btn-ghost" href="#vb-c9n">
+          <span class="t-btnflex__text">Смотреть проекты</span>
+        </a>
+      </div>
+
+      <div class="vb-q3f__facts" data-reveal="">
+        <div class="vb-q3f__fact"><b>12 лет</b>проектной практики</div>
+        <div class="vb-q3f__fact"><b>240+</b>сданных объектов</div>
+        <div class="vb-q3f__fact"><b>СРО</b>допуск на все виды работ</div>
+      </div>
+    </div>
+
+    <div class="vb-q3f__visual" data-reveal="">
+      <div class="vb-q3f__visualbox">
+        <img src="https://static.tildacdn.ink/tila6337-3665-4538-a533-646230393564/photo-1764740109279-.jpg" alt="Рабочее место проектировщика: чертежи и проектная документация" loading="eager">
+        <span class="vb-q3f__scale">Стадия П · СМР</span>
+        <span class="vb-q3f__stamp">Проектная документация по 87-му постановлению</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('vb-q3f');
+  if (!root) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* меню */
+  var burger = root.querySelector('.vb-q3f__burger');
+  var menu = document.getElementById('vb-q3f-menu');
+  if (burger && menu) {
+    burger.addEventListener('click', function () {
+      var open = root.classList.toggle('vb-q3f--menu');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    });
+    menu.addEventListener('click', function (e) {
+      var t = e.target;
+      if (t && t.closest && t.closest('a')) {
+        root.classList.remove('vb-q3f--menu');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', 'Открыть меню');
+      }
+    });
+  }
+
+  /* плавный переход по якорям */
+  root.addEventListener('click', function (e) {
+    var a = e.target;
+    if (!a || !a.closest) return;
+    var link = a.closest('a[href^="#vb-"]');
+    if (!link) return;
+    var id = link.getAttribute('href').slice(1);
+    var target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  });
+
+  /* появление */
+  var items = root.querySelectorAll('[data-reveal]');
+  if (!items.length || reduce || !('IntersectionObserver' in window)) return;
+  root.classList.add('vb-q3f--anim');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('vb-q3f--in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  items.forEach(function (el, i) {
+    el.style.setProperty('--rv-d', (i * 80) + 'ms');
+    io.observe(el);
+  });
+})();
+</script>
+</section>
+
+
+<!-- ============ О КОМПАНИИ ============ -->
+<section id="vb-m8r" class="vb-m8r" data-section-name="О компании" data-vibeblock-unique-section="yes" aria-labelledby="vb-m8r-title">
+<style>
+.vb-m8r, .vb-m8r * { box-sizing: border-box; }
+.vb-m8r input, .vb-m8r textarea, .vb-m8r select { font: inherit; }
+
+.vb-m8r {
+  --m-bg: #F1F2F0;
+  --m-ink: #16181A;
+  --m-mute: rgba(22,24,26,.74);
+  --m-line: rgba(22,24,26,.16);
+  --m-accent: #B33007;
+  --m-shell: 1240px;
+  font-family: var(--t-text-font);
+  background-color: var(--m-bg);
+  color: var(--m-ink);
+  padding: clamp(64px, 9vw, 124px) 0;
+}
+.vb-m8r__inner {
+  max-width: var(--m-shell);
+  margin: 0 auto;
+  padding: 0 clamp(18px, 4vw, 40px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+.vb-m8r__visual {
+  position: relative;
+  border: 1px solid var(--m-line);
+  padding: 12px;
+}
+.vb-m8r__visual img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.vb-m8r__caption {
+  font-family: var(--t-text-font);
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--m-mute);
+  margin: 14px 0 0;
+}
+.vb-m8r__title {
+  font-family: var(--t-headline-font);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3.2vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px;
+  text-wrap: balance;
+}
+.vb-m8r__text {
+  font-family: var(--t-text-font);
+  font-size: clamp(1rem, 1.15vw, 1.08rem);
+  line-height: 1.7;
+  color: var(--m-mute);
+  max-width: 62ch;
+  margin: 0 0 18px;
+  text-wrap: pretty;
+}
+.vb-m8r__list {
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--m-line);
+}
+.vb-m8r__list li {
+  font-family: var(--t-text-font);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--m-ink);
+  padding: 16px 0 16px 34px;
+  border-bottom: 1px solid var(--m-line);
+  position: relative;
+}
+.vb-m8r__list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 22px;
+  width: 12px;
+  height: 6px;
+  border-left: 2px solid var(--m-accent);
+  border-bottom: 2px solid var(--m-accent);
+  transform: rotate(-45deg);
+}
+.vb-m8r__list b { font-weight: 700; }
+
+.vb-m8r--anim [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s cubic-bezier(.16,1,.3,1) var(--rv-d, 0ms), transform .7s cubic-bezier(.16,1,.3,1) var(--rv-d, 0ms);
+}
+.vb-m8r--anim [data-reveal].vb-m8r--in { opacity: 1; transform: none; }
+
+@media (max-width: 960px) {
+  .vb-m8r__inner { grid-template-columns: 1fr; }
+  .vb-m8r__order--first { order: -1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vb-m8r--anim [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+</style>
+
+<div class="vb-m8r__inner">
+  <div class="vb-m8r__order--first">
+    <div class="vb-m8r__visual" data-reveal="">
+      <img src="https://static.tildacdn.ink/tila3133-3264-4234-a433-653732306230/photo-1581094488379-.jpg" alt="Команда инженеров обсуждает проектную документацию" loading="lazy">
+      <p class="vb-m8r__caption">Проектный офис · согласование разделов</p>
+    </div>
+  </div>
+
+  <div>
+    <h2 class="vb-m8r__title" id="vb-m8r-title" data-reveal="">Компания, которая отвечает за документацию целиком</h2>
+    <p class="vb-m8r__text" data-reveal="">ООО «РУСПРОЕКТ» — инженерно-проектная организация полного цикла. Мы ведём объект от первых изысканий до комплекта рабочей документации и не передаём ответственность между подрядчиками по ходу работ.</p>
+    <p class="vb-m8r__text" data-reveal="">В штате — проектировщики, геодезисты, инженеры-строители и специалисты по сметам. Каждый раздел готовит профильная команда, а над комплектом работает единый главный инженер проекта.</p>
+
+    <ul class="vb-m8r__list" data-reveal="">
+      <li><b>Допуск СРО</b> — проектирование, изыскания и авторский надзор без субподрядов на ответственные этапы</li>
+      <li><b>Проверка в междисциплинарном кабинете</b> — коллизии между разделами ловим до подачи на экспертизу</li>
+      <li><b>Сопровождение экспертизы</b> — правим замечания сами, в рамках согласованной стоимости</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('vb-m8r');
+  if (!root) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var items = root.querySelectorAll('[data-reveal]');
+  if (!items.length || !('IntersectionObserver' in window)) return;
+  root.classList.add('vb-m8r--anim');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('vb-m8r--in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+  items.forEach(function (el, i) {
+    el.style.setProperty('--rv-d', (i * 90) + 'ms');
+    io.observe(el);
+  });
+})();
+</script>
+</section>
+
+
+<!-- ============ УСЛУГИ ============ -->
+<section id="vb-h4t" class="vb-h4t" data-section-name="Услуги" data-vibeblock-unique-section="yes" aria-labelledby="vb-h4t-title">
+<style>
+.vb-h4t, .vb-h4t * { box-sizing: border-box; }
+.vb-h4t input, .vb-h4t textarea, .vb-h4t select { font: inherit; }
+
+.vb-h4t {
+  --h-bg: #E7E8E4;
+  --h-ink: #16181A;
+  --h-mute: rgba(22,24,26,.72);
+  --h-line: rgba(22,24,26,.18);
+  --h-accent: #B33007;
+  --h-shell: 1240px;
+  font-family: var(--t-text-font);
+  background-color: var(--h-bg);
+  color: var(--h-ink);
+  padding: clamp(64px, 9vw, 124px) 0;
+}
+.vb-h4t__inner {
+  max-width: var(--h-shell);
+  margin: 0 auto;
+  padding: 0 clamp(18px, 4vw, 40px);
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+}
+.vb-h4t__title {
+  font-family: var(--t-headline-font);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3.4vw, 3.1rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+.vb-h4t__text {
+  font-family: var(--t-text-font);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--h-mute);
+  max-width: 44ch;
+  margin: 0;
+  text-wrap: pretty;
+}
+.vb-h4t__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--h-line);
+}
+.vb-h4t__row {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 20px;
+  align-items: start;
+  padding: 24px 8px;
+  border-bottom: 1px solid var(--h-line);
+  transition: background-color .35s cubic-bezier(.16,1,.3,1), padding-left .35s cubic-bezier(.16,1,.3,1);
+}
+.vb-h4t__row:hover { background-color: rgba(255,255,255,.6); padding-left: 18px; }
+.vb-h4t__icon {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--h-line);
+  background-color: rgba(255,255,255,.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .35s cubic-bezier(.16,1,.3,1), border-color .35s cubic-bezier(.16,1,.3,1);
+}
+.vb-h4t__row:hover .vb-h4t__icon { background-color: #141517; border-color: #141517; }
+.vb-h4t__icon img { width: 26px; height: 26px; display: block; }
+.vb-h4t__name {
+  font-family: var(--t-headline-font);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+  letter-spacing: -0.02em;
+  margin: 4px 0 8px;
+  line-height: 1.2;
+}
+.vb-h4t__descr {
+  font-family: var(--t-text-font);
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--h-mute);
+  margin: 0;
+  max-width: 64ch;
+  text-wrap: pretty;
+}
+.vb-h4t__tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--t-text-font);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--h-accent);
+}
+
+.vb-h4t--anim [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .65s cubic-bezier(.16,1,.3,1) var(--rv-d, 0ms), transform .65s cubic-bezier(.16,1,.3,1) var(--rv-d, 0ms);
+}
+.vb-h4t--anim [data-reveal].vb-h4t--in { opacity: 1; transform: none; }
+
+@media (max-width: 960px) {
+  .vb-h4t__inner { grid-template-columns: 1fr; }
+  .vb-h4t__text { max-width: 62ch; }
+}
+@media (max-width: 560px) {
+  .vb-h4t__row { grid-template-columns: 44px 1fr; gap: 14px; padding: 20px 4px; }
+  .vb-h4t__row:hover { padding-left: 4px; }
+  .vb-h4t__icon { width: 44px; height: 44px; }
+  .vb-h4t__icon img { width: 22px; height: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vb-h4t--anim [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .vb-h4t__row, .vb-h4t__icon { transition: none; }
+}
+</style>
+
+<div class="vb-h4t__inner">
+  <div>
+    <h2 class="vb-h4t__title" id="vb-h4t-title" data-reveal="">Что мы делаем</h2>
+    <p class="vb-h4t__text" data-reveal="">Полный перечень работ по проектированию — от изысканий до сдачи комплекта. Можно заказать один раздел или весь объект целиком.</p>
+  </div>
+
+  <ul class="vb-h4t__list">
+    <li class="vb-h4t__row" data-reveal="">
+      <span class="vb-h4t__icon"><img src="https://static.tildacdn.ink/lib/icons/tilda/structure_map.svg" alt="" loading="lazy"></span>
+      <div>
+        <h3 class="vb-h4t__name">Проектная документация</h3>
+        <p class="vb-h4t__descr">Полный комплект по постановлению №87: от предпроектных решений до рабочей документации, готовой к строительству без дополнительных правок.</p>
+        <span class="vb-h4t__tag">Стадии П и Р</span>
+      </div>
+    </li>
+    <li class="vb-h4t__row" data-reveal="">
+      <span class="vb-h4t__icon"><img src="https://static.tildacdn.ink/lib/icons/tilda/measurement_ruler.svg" alt="" loading="lazy"></span>
+      <div>
+        <h3 class="vb-h4t__name">Инженерные изыскания</h3>
+        <p class="vb-h4t__descr">Геология, геодезия и экология участка: собственные бригады, лабораторные испытания и отчёты, которые проходят экспертизу с первого раза.</p>
+        <span class="vb-h4t__tag">Геология · геодезия · экология</span>
+      </div>
+    </li>
+    <li class="vb-h4t__row" data-reveal="">
+      <span class="vb-h4t__icon"><img src="https://static.tildacdn.ink/lib/icons/tilda/animation_layers_circles_move.svg" alt="" loading="lazy"></span>
+      <div>
+        <h3 class="vb-h4t__name">BIM-моделирование</h3>
+        <p class="vb-h4t__descr">Информационная модель объекта с количествами работ, проверкой коллизий между разделами и выгрузками для подрядчика.</p>
+        <span class="vb-h4t__tag">LOD 300–350</span>
+      </div>
+    </li>
+    <li class="vb-h4t__row" data-reveal="">
+      <span class="vb-h4t__icon"><img src="https://static.tildacdn.ink/lib/icons/tilda/guarantee_check.svg" alt="" loading="lazy"></span>
+      <div>
+        <h3 class="vb-h4t__name">Экспертиза документации</h3>
+        <p class="vb-h4t__descr">Подготовка к государственной и негосударственной экспертизе, правовое сопровождение и устранение замечаний без сдвига сроков.</p>
+        <span class="vb-h4t__tag">Полное сопровождение</span>
+      </div>
+    </li>
+    <li class="vb-h4t__row" data-reveal="">
+      <span class="vb-h4t__icon"><img src="https://static.tildacdn.ink/lib/icons/tilda/design_house.svg" alt="" loading="lazy"></span>
+      <div>
+        <h3 class="vb-h4t__name">Авторский надзор</h3>
+        <p class="vb-h4t__descr">Выезды на площадку, контроль соответствия строительства проектным решениям и оперативные ответы подрядчику по спорным узлам.</p>
+        <span class="vb-h4t__tag">На весь период СМР</span>
+      </div>
+    </li>
+    <li class="vb-h4t__row" data-reveal="">
+      <span class="vb-h4t__icon"><img src="https://static.tildacdn.ink/lib/icons/tilda/estimate_calculator.svg" alt="" loading="lazy"></span>
+      <div>
+        <h3 class="vb-h4t__name">Сметы и ТЭО</h3>
+        <p class="vb-h4t__descr">Сметная документация, технико-экономическое обоснование и сравнение вариантов бюджета до того, как вы примете решение о строительстве.</p>
+        <span class="vb-h4t__tag">Расчёт за 3 рабочих дня</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('vb-h4t');
+  if (!root) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var items = root.querySelectorAll('[data-reveal]');
+  if (!items.length || !('IntersectionObserver' in window)) return;
+  root.classList.add('vb-h4t--anim');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('vb-h4t--in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -5% 0px' });
+  items.forEach(function (el, i) {
+    el.style.setProperty('--rv-d', (i % 5) * 80 + 'ms');
+    io.observe(el);
+  });
+})();
+</script>
+</section>
+
+
+<!-- ============ ПРОЦЕСС ============ -->
+<section id="vb-p6w" class="vb-p6w" data-section-name="Процесс работы" data-vibeblock-unique-section="yes" aria-labelledby="vb-p6w-title">
+<style>
+.vb-p6w, .vb-p6w * { box-sizing: border-box; }
+.vb-p6w input, .vb-p6w textarea, .vb-p6w select { font: inherit; }
+
+.vb-p6w {
+  --p-bg: #141517;
+  --p-ink: #EDEEEA;
+  --p-mute: rgba(237,238,234,.72);
+  --p-line: rgba(237,238,234,.16);
+  --p-accent: #FF5A1F;
+  --p-shell: 1240px;
+  font-family: var(--t-text-font);
+  background-color: var(--p-bg);
+  color: var(--p-ink);
+  padding: clamp(64px, 9vw, 124px) 0;
+}
+.vb-p6w__inner { max-width: var(--p-shell); margin: 0 auto; padding: 0 clamp(18px, 4vw, 40px); }
+.vb-p6w__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: clamp(36px, 5vw, 64px);
+}
+.vb-p6w__title {
+  font-family: var(--t-headline-font);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3.4vw, 3.1rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  margin: 0;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+.vb-p6w__text {
+  font-family: var(--t-text-font);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--p-mute);
+  max-width: 46ch;
+  margin: 0;
+  text-wrap: pretty;
+}
+.vb-p6w__steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 3vw, 40px);
+  margin: 0;
+  padding: 0;
+}
+.vb-p6w__step {
+  border-top: 1px solid var(--p-line);
+  padding-top: 22px;
+  position: relative;
+}
+.vb-p6w__step::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 46px;
+  height: 3px;
+  background-color: var(--p-accent);
+  transform-origin: left center;
+}
+.vb-p6w--anim .vb-p6w__step::before { transform: scaleX(0); transition: transform .7s cubic-bezier(.16,1,.3,1) var(--rv-d, 0ms); }
+.vb-p6w--anim .vb-p6w__step.vb-p6w--in::before { transform: scaleX(1); }
+.vb-p6w__num {
+  font-family: var(--t-headline-font);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--p-accent);
+  display: block;
+  margin-bottom: 16px;
+}
+.vb-p6w__stepname {
+  font-family: var(--t-headline-font);
+  font-weight: 700;
+  font-size: 1.22rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+.vb-p6w__stepdescr {
+  font-family: var(--t-text-font);
+  font-size: 15.5px;
+  line-height: 1.62;
+  color: var(--p-mute);
+  margin: 0;
+  text-wrap: pretty;
+}
+.vb-p6w__note {
+  margin-top: clamp(36px, 5vw, 56px);
+  border: 1px solid var(--p-line);
+  padding: clamp(20px, 3vw, 32px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.vb-p6w__notetext {
+  font-family: var(--t-text-font);
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--p-mute);
+  max-width: 62ch;
+  margin: 0;
+}
+.vb-p6w__notetext b { color: var(--p-ink); font-weight: 700; }
+.vb-p6w__btn {
+  background-color: var(--p-accent) !important;
+  color: #141517 !important;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.vb-p6w__btn:hover, .vb-p6w__btn:focus-visible { background-color: #FF7440 !important; }
+
+.vb-p6w--anim [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .65s cubic-bezier(.16,1,.3,1) var(--rv-d, 0ms), transform .65s cubic-bezier(.16,1,.3,1) var(--rv-d, 0ms);
+}
+.vb-p6w--anim [data-reveal].vb-p6w--in { opacity: 1; transform: none; }
+
+@media (max-width: 1000px) { .vb-p6w__steps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) {
+  .vb-p6w__steps { grid-template-columns: 1fr; }
+  .vb-p6w__note { flex-direction: column; align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vb-p6w--anim [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .vb-p6w--anim .vb-p6w__step::before { transform: scaleX(1) !important; transition: none !important; }
+}
+</style>
+
+<div class="vb-p6w__inner">
+  <div class="vb-p6w__head">
+    <h2 class="vb-p6w__title" id="vb-p6w-title" data-reveal="">Как устроена работа</h2>
+    <p class="vb-p6w__text" data-reveal="">Четыре этапа с понятным результатом на каждом. Вы всегда знаете, что уже готово и что будет дальше.</p>
+  </div>
+
+  <ol class="vb-p6w__steps">
+    <li class="vb-p6w__step" data-reveal="">
+      <span class="vb-p6w__num">01</span>
+      <h3 class="vb-p6w__stepname">Заявка и техзадание</h3>
+      <p class="vb-p6w__stepdescr">Обсуждаем объект, исходные данные и требования. В течение двух рабочих дней присылаем перечень работ, сроки и фиксированную стоимость этапа.</p>
+    </li>
+    <li class="vb-p6w__step" data-reveal="">
+      <span class="vb-p6w__num">02</span>
+      <h3 class="vb-p6w__stepname">Исходные данные и изыскания</h3>
+      <p class="vb-p6w__stepdescr">Собираем разрешительную документацию, при необходимости выезжаем на участок и готовим отчёты по инженерным изысканиям.</p>
+    </li>
+    <li class="vb-p6w__step" data-reveal="">
+      <span class="vb-p6w__num">03</span>
+      <h3 class="vb-p6w__stepname">Разработка документации</h3>
+      <p class="vb-p6w__stepdescr">Проектируем разделы параллельно и сверяем их в междисциплинарном кабинете. Промежуточные версии вы видите по графику работ.</p>
+    </li>
+    <li class="vb-p6w__step" data-reveal="">
+      <span class="vb-p6w__num">04</span>
+      <h3 class="vb-p6w__stepname">Экспертиза и передача</h3>
+      <p class="vb-p6w__stepdescr">Подаём комплект на экспертизу, сопровождаем проверку и передаём документацию вместе с пояснительной запиской и сметами.</p>
+    </li>
+  </ol>
+
+  <div class="vb-p6w__note" data-reveal="">
+    <p class="vb-p6w__notetext"><b>Сроки закрепляются в договоре.</b> На первом этапе вы получаете календарный план с датами по каждому разделу — и ответственность за их соблюдение.</p>
+    <a class="t-btnflex t-btnflex_md vb-p6w__btn" href="#vb-x5j">
+      <span class="t-btnflex__text">Получить расчёт</span>
+    </a>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('vb-p6w');
+  if (!root) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var items = root.querySelectorAll('[data-reveal]');
+  if (!items.length || !('IntersectionObserver' in window)) return;
+  root.classList.add('vb-p6w--anim');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('vb-p6w--in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -5% 0px' });
+  items.forEach(function (el, i) {
+    el.style.setProperty('--rv-d', (i * 110) + 'ms');
+    io.observe(el);
+  });
+})();
+</script>
+</section>
+
+
+<!-- ============ ПРОЕКТЫ ============ -->
+<section id="vb-c9n" class="vb-c9n" data-section-name="Проекты" data-vibeblock-unique-section="yes" aria-labelledby="vb-c9n-title">
+<style>
+.vb-c9n, .vb-c9n * { box-sizing: border-box; }
+.vb-c9n input, .vb-c9n textarea, .vb-c9n select { font: inherit; }
+
+.vb-c9n {
+  --c-bg: #F1F2F0;
+  --c-ink: #16181A;
+  --c-mute: rgba(22,24,26,.72);
+  --c-line: rgba(22,24,26,.16);
+  --c-accent: #B33007;
+  --c-shell: 1240px;
+  font-family: var(--t-text-font);
+  background-color: var(--c-bg);
+  color: var(--c-ink);
+  padding: clamp(64px, 9vw, 124px) 0;
+}
+.vb-c9n__inner { max-width: var(--c-shell); margin: 0 auto; padding: 0 clamp(18px, 4vw, 40px); }
+.vb-c9n__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: clamp(32px, 4vw, 56px);
+  padding-bottom: clamp(24px, 3vw, 36px);
+  border-bottom: 1px solid var(--c-line);
+}
+.vb-c9n__title {
+  font-family: var(--t-headline-font);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3.4vw, 3.1rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  margin: 0;
+  max-width: 14ch;
+  text-wrap: balance;
+}
+.vb-c9n__text {
+  font-family: var(--t-text-font);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--c-mute);
+  max-width: 560px;
+  margin: 0;
+  text-wrap: pretty;
+}
+.vb-c9n__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: clamp(20px, 3vw, 36px);
+}
+.vb-c9n__card { margin: 0; display: flex; flex-direction: column; }
+.vb-c9n__media {
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  aspect-ratio: 4 / 3;
+}
+.vb-c9n__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .8s cubic-bezier(.16,1,.3,1);
+}
+.vb-c9n__card:hover .vb-c9n__media img { transform: scale(1.045); }
+.vb-c9n__name {
+  font-family: var(--t-headline-font);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  letter-spacing: -0.02em;
+  margin: 20px 0 8px;
+  line-height: 1.22;
+}
+.vb-c9n__descr {
+  font-family: var(--t-text-font);
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--c-mute);
+  margin: 0 0 16px;
+  text-wrap: pretty;
+}
+.vb-c9n__meta {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  border-top: 1px solid var(--c-line);
+  padding-top: 14px;
+  font-family: var(--t-text-font);
+  font-size: 13.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+}
+.vb-c9n__meta span:first-child { color: var(--c-accent); }
+
+.vb-c9n--anim [data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .7s cubic-bezier(.16,1,.3,1) var(--rv-d, 0ms), transform .7s cubic-bezier(.16,1,.3,1) var(--rv-d, 0ms);
+}
+.vb-c9n--anim [data-reveal].vb-c9n--in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .vb-c9n--anim [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .vb-c9n__media img { transition: none; }
+  .vb-c9n__card:hover .vb-c9n__media img { transform: none; }
+}
+</style>
+
+<div class="vb-c9n__inner">
+  <div class="vb-c9n__head">
+    <h2 class="vb-c9n__title" id="vb-c9n-title" data-reveal="">Объекты</h2>
+    <p class="vb-c9n__text" data-reveal="">Жилые, производственные и общественные здания. Ниже — три примера комплектов, сданных заказчикам за последние годы.</p>
+  </div>
+
+  <div class="vb-c9n__grid">
+    <figure class="vb-c9n__card" data-reveal="">
+      <div class="vb-c9n__media">
+        <img src="https://static.tildacdn.ink/tila6636-3963-4635-a238-616533346636/photo-1678388583153-.jpg" alt="Визуализация жилого комплекса" loading="lazy">
+      </div>
+      <figcaption>
+        <h3 class="vb-c9n__name">ЖК «Северный квартал»</h3>
+        <p class="vb-c9n__descr">Проектная документация на четыре корпуса: АР, КР, инженерные разделы и наружные сети. Сопровождение экспертизы.</p>
+        <div class="vb-c9n__meta"><span>Жильё</span><span>68 000 м²</span><span>2024</span></div>
+      </figcaption>
+    </figure>
+
+    <figure class="vb-c9n__card" data-reveal="">
+      <div class="vb-c9n__media">
+        <img src="https://static.tildacdn.ink/tila3638-6436-4337-b232-616339333735/photo-1599707254554-.jpg" alt="Строительная площадка производственного корпуса" loading="lazy">
+      </div>
+      <figcaption>
+        <h3 class="vb-c9n__name">Производственный корпус</h3>
+        <p class="vb-c9n__descr">Изыскания, рабочая документация каркаса и технологических оснований, авторский надзор на период строительства.</p>
+        <div class="vb-c9n__meta"><span>Промышленность</span><span>21 500 м²</span><span>2023</span></div>
+      </figcaption>
+    </figure>
+
+    <figure class="vb-c9n__card" data-reveal="">
+      <div class="vb-c9n__media">
+        <img src="https://static.tildacdn.ink/tila3533-3033-4338-b766-656266663532/photo-1674981208693-.jpg" alt="Фасад современного офисного здания" loading="lazy">
+      </div>
+      <figcaption>
+        <h3 class="vb-c9n__name">Бизнес-центр «Меридиан»</h3>
+        <p class="vb-c9n__descr">Реконструкция фасадов и внутренних инженерных систем, BIM-модель по разделам ОВ, ВК, ЭОМ и слаботочных систем.</p>
+        <div class="vb-c9n__meta"><span>Реконструкция</span><span>34 000 м²</span><span>2025</span></div>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('vb-c9n');
+  if (!root) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var items = root.querySelectorAll('[data-reveal]');
+  if (!items.length || !('IntersectionObserver' in window)) return;
+  root.classList.add('vb-c9n--anim');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('vb-c9n--in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.16, rootMargin: '0px 0px -5% 0px' });
+  items.forEach(function (el, i) {
+    el.style.setProperty('--rv-d', (i * 130) + 'ms');
+    io.observe(el);
+  });
+})();
+</script>
+</section>
+
+
+<!-- ============ ПРЕИМУЩЕСТВА ============ -->
+<section id="vb-r2v" class="vb-r2v" data-section-name="Почему нас выбирают" data-vibeblock-unique-section="yes" aria-labelledby="vb-r2v-title">
+<style>
+.vb-r2v, .vb-r2v * { box-sizing: border-box; }
+.vb-r2v input, .vb-r2v textarea, .vb-r2v select { font: inherit; }
+
+.vb-r2v {
+  --r-bg: #E7E8E4;
+  --r-ink: #16181A;
+  --r-mute: rgba(22,24,26,.72);
+  --r-line: rgba(22,24,26,.2);
+  --r-accent: #B33007;
+  --r-shell: 1240px;
+  font-family: var(--t-text-font);
+  background-color: var(--r-bg);
+  color: var(--r-ink);
+  padding: clamp(64px, 9vw, 124px) 0;
+}
+.vb-r2v__inner {
+  max-width: var(--r-shell);
+  margin: 0 auto;
+  padding: 0 clamp(18px, 4vw, 40px);
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+}
+.vb-r2v__title {
+  font-family: var(--t-headline-font);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3.4vw, 3.1rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  margin: 0;
+  text-wrap: balance;
+}
+.vb-r2v__items { border-top: 1px solid var(--r-line); }
+.vb-r2v__item {
+  border-bottom: 1px solid var(--r-line);
+  padding: clamp(24px, 3.4vw, 38px) 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.vb-r2v__statement {
+  font-family: var(--t-headline-font);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin: 0;
+  color: var(--r-accent);
+  text-wrap: balance;
+}
+.vb-r2v__descr {
+  font-family: var(--t-text-font);
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--r-mute);
+  margin: 0;
+  max-width: 66ch;
+  text-wrap: pretty;
+}
+
+.vb-r2v--anim [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .65s cubic-bezier(.16,1,.3,1) var(--rv-d, 0ms), transform .65s cubic-bezier(.16,1,.3,1) var(--rv-d, 0ms);
+}
+.vb-r2v--anim [data-reveal].vb-r2v--in { opacity: 1; transform: none; }
+
+@media (max-width: 960px) { .vb-r2v__inner { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) {
+  .vb-r2v--anim [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+</style>
+
+<div class="vb-r2v__inner">
+  <h2 class="vb-r2v__title" id="vb-r2v-title" data-reveal="">Три причины выбрать нас</h2>
+
+  <div class="vb-r2v__items">
+    <div class="vb-r2v__item" data-reveal="">
+      <p class="vb-r2v__statement">Сроки закреплены в договоре</p>
+      <p class="vb-r2v__descr">Календарный план с датами по каждому разделу и ответственностью сторон. Простой по нашей вине компенсируется — это пункт договора, а не обещание на встрече.</p>
+    </div>
+    <div class="vb-r2v__item" data-reveal="">
+      <p class="vb-r2v__statement">Смета известна до старта работ</p>
+      <p class="vb-r2v__descr">Фиксированная стоимость этапа и понятный перечень того, что в неё входит. Расширение объёма — только по согласованию, никаких доплат по ходу проектирования.</p>
+    </div>
+    <div class="vb-r2v__item" data-reveal="">
+      <p class="vb-r2v__statement">Одна команда на весь цикл</p>
+      <p class="vb-r2v__descr">Изыскания, проектирование, экспертиза и авторский надзор внутри одной компании. Не нужно сводить подрядчиков между собой и выяснять, кто виноват в коллизии разделов.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('vb-r2v');
+  if (!root) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var items = root.querySelectorAll('[data-reveal]');
+  if (!items.length || !('IntersectionObserver' in window)) return;
+  root.classList.add('vb-r2v--anim');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('vb-r2v--in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.2, rootMargin: '0px 0px -5% 0px' });
+  items.forEach(function (el, i) {
+    el.style.setProperty('--rv-d', (i * 120) + 'ms');
+    io.observe(el);
+  });
+})();
+</script>
+</section>
+
+
+<!-- ============ КОНТАКТЫ И ФОРМА ============ -->
+<section id="vb-x5j" class="vb-x5j" data-section-name="Контакты и заявка" data-vibeblock-unique-section="yes" aria-labelledby="vb-x5j-title">
+<style>
+.vb-x5j, .vb-x5j * { box-sizing: border-box; }
+.vb-x5j input, .vb-x5j textarea, .vb-x5j select { font: inherit; }
+
+.vb-x5j {
+  --x-bg: #141517;
+  --x-ink: #EDEEEA;
+  --x-mute: rgba(237,238,234,.74);
+  --x-line: rgba(237,238,234,.18);
+  --x-accent: #FF5A1F;
+  --x-shell: 1240px;
+  font-family: var(--t-text-font);
+  background-color: var(--x-bg);
+  color: var(--x-ink);
+  padding: clamp(64px, 9vw, 124px) 0;
+}
+.vb-x5j__inner {
+  max-width: var(--x-shell);
+  margin: 0 auto;
+  padding: 0 clamp(18px, 4vw, 40px);
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: clamp(36px, 5vw, 72px);
+  align-items: start;
+}
+.vb-x5j__title {
+  font-family: var(--t-headline-font);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3.4vw, 3.1rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  margin: 0 0 20px;
+  max-width: 15ch;
+  text-wrap: balance;
+}
+.vb-x5j__text {
+  font-family: var(--t-text-font);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--x-mute);
+  max-width: 46ch;
+  margin: 0 0 34px;
+  text-wrap: pretty;
+}
+.vb-x5j__contacts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--x-line);
+}
+.vb-x5j__contacts li {
+  border-bottom: 1px solid var(--x-line);
+  padding: 16px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 24px;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.vb-x5j__clabel {
+  font-family: var(--t-text-font);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--x-mute);
+}
+.vb-x5j__cvalue {
+  font-family: var(--t-headline-font);
+  font-weight: 700;
+  font-size: clamp(1.02rem, 1.5vw, 1.24rem);
+  letter-spacing: -0.01em;
+  color: var(--x-ink);
+  text-decoration: none;
+}
+a.vb-x5j__cvalue:hover, a.vb-x5j__cvalue:focus-visible { color: var(--x-accent); outline: none; }
+
+.vb-x5j__panel {
+  border: 1px solid var(--x-line);
+  padding: clamp(22px, 3.4vw, 40px);
+  background-color: rgba(255,255,255,.03);
+}
+.vb-x5j__paneltitle {
+  font-family: var(--t-headline-font);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 1.9vw, 1.55rem);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+.vb-x5j__panelsub {
+  font-family: var(--t-text-font);
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--x-mute);
+  margin: 0 0 26px;
+}
+
+.x5j-form { font-family: var(--t-text-font); }
+.x5j-form input, .x5j-form textarea, .x5j-form select { font: inherit; }
+
+.vb-x5j__group { margin-bottom: 18px; }
+.vb-x5j__agree { flex-wrap: wrap; }
+.vb-x5j__group label {
+  display: block;
+  font-family: var(--t-text-font);
+  font-size: 13.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--x-mute);
+  margin-bottom: 8px;
+}
+.x5j-form input[type="text"],
+.x5j-form input[type="tel"],
+.x5j-form input[type="email"],
+.x5j-form textarea {
+  width: 100%;
+  background-color: rgba(255,255,255,.05);
+  border: 1px solid var(--x-line);
+  color: var(--x-ink);
+  padding: 14px 16px;
+  font-family: var(--t-text-font);
+  font-size: 16px;
+  line-height: 1.4;
+  border-radius: 0;
+  appearance: none;
+  transition: border-color .3s cubic-bezier(.16,1,.3,1), background-color .3s cubic-bezier(.16,1,.3,1);
+}
+.x5j-form textarea { min-height: 118px; resize: vertical; }
+.x5j-form input::placeholder, .x5j-form textarea::placeholder { color: rgba(237,238,234,.55); }
+.x5j-form input:focus, .x5j-form textarea:focus {
+  outline: none;
+  border-color: var(--x-accent);
+  background-color: rgba(255,255,255,.08);
+}
+.vb-x5j__agree {
+  margin-bottom: 22px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 4px 0 22px;
+}
+.vb-x5j__agree input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  flex: 0 0 auto;
+  accent-color: #FF5A1F;
+}
+.vb-x5j__agree label {
+  font-family: var(--t-text-font);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--x-mute);
+  text-transform: none;
+  letter-spacing: 0;
+  margin: 0;
+}
+.vb-x5j__agree a { color: var(--x-ink); text-decoration: underline; text-underline-offset: 3px; }
+.x5j-form .t-submit { width: 100%; justify-content: center; background-color: var(--x-accent) !important; color: #141517 !important; }
+.x5j-form .t-submit:hover, .x5j-form .t-submit:focus-visible { background-color: #FF7440 !important; }
+
+.vb-x5j__error {
+  font-family: var(--t-text-font);
+  font-size: 13.5px;
+  color: #FF8A5C;
+  margin-top: 7px;
+  min-height: 1px;
+}
+.t-input-error { font-family: var(--t-text-font); font-size: 13.5px; color: #FF8A5C; margin-top: 7px; }
+.x5j-form .js-errorbox-all {
+  border: 1px solid rgba(255,90,31,.5);
+  background-color: rgba(255,90,31,.1);
+  color: #FFB89B;
+  font-family: var(--t-text-font);
+  font-size: 14.5px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+.x5j-form .js-successbox {
+  border: 1px solid rgba(120,220,150,.45);
+  background-color: rgba(120,220,150,.1);
+  color: #C9F2D6;
+  font-family: var(--t-text-font);
+  font-size: 15px;
+  line-height: 1.55;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.vb-x5j--anim [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s cubic-bezier(.16,1,.3,1) var(--rv-d, 0ms), transform .7s cubic-bezier(.16,1,.3,1) var(--rv-d, 0ms);
+}
+.vb-x5j--anim [data-reveal].vb-x5j--in { opacity: 1; transform: none; }
+
+@media (max-width: 960px) { .vb-x5j__inner { grid-template-columns: 1fr; } }
+@media (max-width: 480px) {
+  .vb-x5j__contacts li { flex-direction: column; gap: 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vb-x5j--anim [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .x5j-form input, .x5j-form textarea { transition: none; }
+}
+</style>
+
+<div class="vb-x5j__inner">
+  <div>
+    <h2 class="vb-x5j__title" id="vb-x5j-title" data-reveal="">Обсудим ваш объект</h2>
+    <p class="vb-x5j__text" data-reveal="">Пришлите исходные данные или просто опишите задачу — в течение рабочего дня вернёмся с перечнем работ, сроками и стоимостью.</p>
+
+    <ul class="vb-x5j__contacts" data-reveal="">
+      <li><span class="vb-x5j__clabel">Телефон</span><a class="vb-x5j__cvalue" href="tel:+74951330318">+7 (495) 133-03-18</a></li>
+      <li><span class="vb-x5j__clabel">Почта</span><a class="vb-x5j__cvalue" href="mailto:office@rusproject.ru">office@rusproject.ru</a></li>
+      <li><span class="vb-x5j__clabel">Офис</span><span class="vb-x5j__cvalue">Москва, ул. Проектная, 12</span></li>
+      <li><span class="vb-x5j__clabel">Часы работы</span><span class="vb-x5j__cvalue">Пн–Пт, 9:00–18:00</span></li>
+    </ul>
+  </div>
+
+  <div class="vb-x5j__panel" data-reveal="">
+    <h3 class="vb-x5j__paneltitle">Заявка на проектирование</h3>
+    <p class="vb-x5j__panelsub">Заполните поля — остальное уточним в разговоре.</p>
+
+    <form id="vb-x5j-form" name="vb-x5j-form" class="x5j-form t-form js-form-proccess" role="form" action="#" method="POST" data-vibeblock-form="true" data-inputbox=".vb-x5j__group" data-formactiontype="2" data-error-popup="y" novalidate="">
+
+      <div class="js-successbox t-form__successbox" style="display: none"></div>
+
+      <div class="js-errorbox-all" style="display: none">
+        <div class="js-rule-error-all"></div>
+      </div>
+
+      <div class="vb-x5j__group">
+        <label for="vb-x5j-name">Имя</label>
+        <input type="text" id="vb-x5j-name" name="Name" placeholder="Как к вам обращаться" class="js-tilda-rule" data-tilda-req="1" data-tilda-rule="namerus" autocomplete="name">
+        <div class="t-input-error"></div>
+      </div>
+
+      <div class="vb-x5j__group">
+        <label for="vb-x5j-phone">Телефон</label>
+        <input type="tel" id="vb-x5j-phone" name="Phone" placeholder="+7 (___) ___-__-__" class="js-tilda-rule js-tilda-mask" data-tilda-req="1" data-tilda-rule="phone" data-tilda-mask="+7 (999) 999-99-99" data-tilda-mask-holder="+7 (___) ___-__-__" autocomplete="tel">
+        <div class="t-input-error"></div>
+      </div>
+
+      <div class="vb-x5j__group">
+        <label for="vb-x5j-task">Задача</label>
+        <textarea id="vb-x5j-task" name="Task" placeholder="Тип объекта, площадь, нужные разделы"></textarea>
+        <div class="t-input-error"></div>
+      </div>
+
+      <div class="vb-x5j__group vb-x5j__agree">
+        <input type="checkbox" id="vb-x5j-agree" name="Agree" class="js-tilda-rule" data-tilda-req="1">
+        <label for="vb-x5j-agree">Согласен на обработку персональных данных и с <a href="#">политикой конфиденциальности</a></label>
+        <div class="t-input-error" style="width:100%"></div>
+      </div>
+
+      <button type="submit" class="t-submit t-btnflex t-btnflex_md">
+        <span class="t-btnflex__text">Отправить заявку</span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('vb-x5j');
+  if (!root) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var items = root.querySelectorAll('[data-reveal]');
+  if (items.length && !reduce && ('IntersectionObserver' in window)) {
+    root.classList.add('vb-x5j--anim');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('vb-x5j--in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+    items.forEach(function (el, i) {
+      el.style.setProperty('--rv-d', (i * 110) + 'ms');
+      io.observe(el);
+    });
+  }
+
+  var form = document.getElementById('vb-x5j-form');
+  if (!form) return;
+  var submitButton = form.querySelector('[type="submit"]');
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    window.t_forms__initBtnClick({
+      target: submitButton,
+      srcElement: submitButton,
+      preventDefault: function () {}
+    });
+  });
+})();
+</script>
+</section>
+
+
+<!-- ============ ПОДВАЛ ============ -->
+<footer id="vb-l8k" class="vb-l8k" data-section-name="Подвал сайта" data-vibeblock-unique-section="yes" aria-labelledby="vb-l8k-title">
+<style>
+.vb-l8k, .vb-l8k * { box-sizing: border-box; }
+.vb-l8k input, .vb-l8k textarea, .vb-l8k select { font: inherit; }
+
+.vb-l8k {
+  --l-bg: #0E0F10;
+  --l-ink: #EDEEEA;
+  --l-mute: rgba(237,238,234,.62);
+  --l-line: rgba(237,238,234,.14);
+  --l-accent: #FF5A1F;
+  --l-shell: 1240px;
+  font-family: var(--t-text-font);
+  background-color: var(--l-bg);
+  color: var(--l-ink);
+  padding: clamp(40px, 5vw, 64px) 0 clamp(28px, 4vw, 44px);
+}
+.vb-l8k__inner { max-width: var(--l-shell); margin: 0 auto; padding: 0 clamp(18px, 4vw, 40px); }
+.vb-l8k__top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: clamp(28px, 4vw, 44px);
+  border-bottom: 1px solid var(--l-line);
+}
+.vb-l8k__brand { display: flex; align-items: center; gap: 12px; }
+.vb-l8k__mark {
+  width: 32px;
+  height: 32px;
+  background-color: var(--l-accent);
+  color: #141517;
+  font-family: var(--t-headline-font);
+  font-weight: 800;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vb-l8k__title {
+  font-family: var(--t-headline-font);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.vb-l8k__subtitle {
+  font-family: var(--t-text-font);
+  font-size: 13px;
+  color: var(--l-mute);
+  margin: 3px 0 0;
+}
+.vb-l8k__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 26px;
+}
+.vb-l8k__nav a {
+  font-family: var(--t-text-font);
+  font-size: 15px;
+  color: var(--l-mute);
+  text-decoration: none;
+  transition: color .3s cubic-bezier(.16,1,.3,1);
+}
+.vb-l8k__nav a:hover, .vb-l8k__nav a:focus-visible { color: var(--l-accent); outline: none; }
+.vb-l8k__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  justify-content: space-between;
+  padding-top: clamp(20px, 3vw, 30px);
+}
+.vb-l8k__note {
+  font-family: var(--t-text-font);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--l-mute);
+  margin: 0;
+  max-width: 62ch;
+}
+@media (prefers-reduced-motion: reduce) { .vb-l8k__nav a { transition: none; } }
+</style>
+
+<div class="vb-l8k__inner">
+  <div class="vb-l8k__top">
+    <div class="vb-l8k__brand">
+      <span class="vb-l8k__mark">Р</span>
+      <div>
+        <h2 class="vb-l8k__title" id="vb-l8k-title">ООО «РУСПРОЕКТ»</h2>
+        <p class="vb-l8k__subtitle">Изыскания · проектирование · авторский надзор</p>
+      </div>
+    </div>
+
+    <nav class="vb-l8k__nav" aria-label="Навигация в подвале">
+      <a href="#vb-m8r">О компании</a>
+      <a href="#vb-h4t">Услуги</a>
+      <a href="#vb-p6w">Процесс</a>
+      <a href="#vb-c9n">Проекты</a>
+      <a href="#vb-x5j">Контакты</a>
+    </nav>
+  </div>
+
+  <div class="vb-l8k__bottom">
+    <p class="vb-l8k__note">© 2026 ООО «РУСПРОЕКТ». Проектная деятельность осуществляется в соответствии с действующим законодательством РФ.</p>
+    <p class="vb-l8k__note">Политика конфиденциальности · Согласие на обработку персональных данных</p>
+  </div>
+</div>
+</footer>
